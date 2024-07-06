@@ -15,7 +15,7 @@ function App() {
   const handleAddItem = () => {
     if (newItemValue.trim() !== '') {
       const newId = crypto.randomUUID();
-      setData([...data, { id: newId, value: newItemValue }]);
+      setData(data =>[...data, { id: newId, value: newItemValue }])
       setNewItemValue('');
       inputRef.current.focus();
     }
@@ -53,7 +53,7 @@ function App() {
             ref={inputRef}
             value={newItemValue}
             onChange={(e) => setNewItemValue(e.target.value)}
-            onKeyPress={handleKeyPress}
+            onKeyDown={handleKeyPress}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
             placeholder="Введите новый элемент"

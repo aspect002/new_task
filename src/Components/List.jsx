@@ -1,8 +1,12 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState,useEffect, useCallback, useMemo } from 'react';
 import ListItem from './ListItem';
 
 function List({ data }) {
   const [items, setItems] = useState(data);
+
+  useEffect(()=>{
+setItems(data)
+  },[data])
 
   const handleClick = useCallback((id) => {
     setItems((prevItems) =>
